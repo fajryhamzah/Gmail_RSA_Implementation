@@ -1,0 +1,50 @@
+{% extends "index.html" %}
+{% block konten %}
+<div class="container">
+  <form method="post">
+    <div class="row valign-wrapper">
+      <div class="col s6 offset-s3 valign">
+        <div class="card blue darken-1">
+          <div class="card-content white-text">
+            <span class="card-title">Masukan Pengirim Email</span>
+            <div class="row">
+              <div class="input-field col s12">
+                <input placeholder="xx@gmail.com" id="first_name" type="text" name="name">
+                <label for="first_name">Pengirim Email</label>
+              </div>
+              <center>
+                <button class="waves-effect waves-light btn" id="save" type="submit">Cari</button>
+              </center>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+
+
+  {%if info%}
+    <ul class="collection">
+      {%for a in info %}
+      <li class="collection-item avatar">
+        <span class="title">{{a[1]}}</span>
+        <p>{{a[2]}}<br>
+           {{a[3]}}
+        </p>
+        <a href="/read_mail/{{a[0]}}" class="secondary-content">Lihat Email</a>
+      </li>
+      {%endfor%}
+    </ul>
+  {%endif%}
+</div>
+
+<style>
+.input-field label {
+     color: #ffffff !important;
+}
+
+input[type="text"]:not(.browser-default){
+  border-bottom: 1px solid #fff !important;
+}
+</style>
+{%endblock%}

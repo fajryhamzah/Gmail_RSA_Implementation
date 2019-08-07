@@ -1,0 +1,51 @@
+{% extends "index.html" %}
+{% block konten %}
+<div class="container">
+
+    <ul class="collection">
+      <li class="collection-item avatar">
+        <span class="title">{{info[0]}}</span>
+        <p>{{info[1]}}<br>
+           {{info[2]}}
+        </p>
+        <div class="collection">
+        <a class="collection-item active">{{info[3]}}</a>
+      </div>
+      </li>
+
+    </ul>
+    <form method="post">
+      <div class="row">
+        <div class="input-field col s4">
+          <select name="en" required>
+            <option value="" disabled selected>Pilih key</option>
+            {%for i in key%}
+            <option value="{{i}}">{{i}}</option>
+            {%endfor%}
+          </select>
+          <label>Decrypt dengan key:</label>
+        </div>
+        <button class="waves-effect waves-light btn" id="save" type="submit">Decrypt</button>
+      </div>
+    </form>
+    {% if decrypt %}
+    <div class="row">
+   <div class="col s12 m6">
+     <div class="card blue-grey darken-1">
+       <div class="card-content white-text">
+         <span class="card-title">Hasil Decrypt </span>
+         <p>{{decrypt}}.</p>
+       </div>
+     </div>
+   </div>
+ </div>
+ {%endif%}
+
+
+</div>
+<script>
+$(document).ready(function(){
+    $('select').formSelect();
+  });
+</script>
+{%endblock%}

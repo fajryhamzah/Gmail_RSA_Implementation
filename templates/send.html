@@ -1,0 +1,46 @@
+{% extends "index.html" %}
+{% block konten %}
+  <div class="row">
+    <form class="col s12" method="post">
+      <div class="row">
+        <div class="col s6">
+          <div class="input-field">
+            <input id="email_inline" type="email" name="tujuan">
+            <label for="email_inline">Email Tujuan</label>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s6">
+          <input id="email" type="text" name="judul">
+          <label for="email">Subjek</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s6">
+          <textarea id="textarea1" class="materialize-textarea" name="isi"></textarea>
+          <label for="textarea1">Pesan</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s4">
+          <select name="en">
+            <option value="" disabled selected>Pilih key</option>
+            <option value="1">Tanpa enkripsi</option>
+            {%for i in info%}
+              <option value="{{i}}">{{i}}</option>
+            {%endfor%}
+          </select>
+          <label>Enkripsi dengan key:</label>
+        </div>
+      </div>
+      <button class="waves-effect waves-light btn-large" id="save" type="submit">Kirim</button>
+    </form>
+  </div>
+
+<script>
+$(document).ready(function(){
+    $('select').formSelect();
+});
+</script>
+{%endblock%}

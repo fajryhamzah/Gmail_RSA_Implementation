@@ -1,0 +1,19 @@
+<html>
+<head>
+  <title>KSI</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='materialize.min.css') }}">
+  <script type="text/javascript" src="{{ url_for('static', filename='jquery.js') }}"></script>
+  <script type="text/javascript" src="{{ url_for('static', filename='materialize.min.js') }}"></script>
+</head>
+<body>
+  {% include 'menu.html' %}
+  {% block konten %}
+        konten
+  {% endblock %}
+</body>
+<script type="text/javascript">
+
+$(".dropdown-trigger").dropdown();
+
+</script>
+</html>
